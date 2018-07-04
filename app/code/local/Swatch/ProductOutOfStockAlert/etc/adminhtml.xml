@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Module configuration Admin
+*
+* @author David Voisard
+*/
+-->
+<config>
+    <menu>
+        <productoutofstockalert translate="title" module="swatch_productoutofstockalert">
+            <title>Customer Out of stock Alert</title>
+            <sort_order>60</sort_order>
+            <children>
+                <template translate="title" module="swatch_productoutofstockalert">
+                    <title>Manage Alerts</title>
+                    <action>swatch_productoutofstockalert/adminhtml_alerts/</action>
+                </template>
+            </children>
+        </productoutofstockalert>
+    </menu>
+</config>

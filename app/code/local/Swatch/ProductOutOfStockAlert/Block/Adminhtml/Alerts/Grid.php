@@ -1,14 +1,16 @@
 <?php
 /**
+ * Adminhtml alerts templates grid block
+ *
  * @author David Voisard
  */
-class Swatch_ProductOutOfStockAlert_Block_Adminhtml_Tab_Alerts extends Mage_Adminhtml_Block_Widget_Grid
+class Swatch_ProductOutOfStockAlert_Block_Adminhtml_Alerts_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     public function __construct()
     {
         parent::__construct();
 
-        $this->setId('alertStock');
+        $this->setId('alertOutOfStock');
         $this->setDefaultSort('entered_at');
         $this->setDefaultSort('DESC');
         $this->setUseAjax(true);
@@ -48,8 +50,10 @@ class Swatch_ProductOutOfStockAlert_Block_Adminhtml_Tab_Alerts extends Mage_Admi
     {
         $productId = $this->getRequest()->getParam('id');
 
-        return $this->getUrl('*/catalog_product/alertsStockGrid', array(
+        return $this->getUrl('*/catalog_product/alertsOutOfStockGrid', array(
             'id'    => $productId,
         ));
     }
+
 }
+

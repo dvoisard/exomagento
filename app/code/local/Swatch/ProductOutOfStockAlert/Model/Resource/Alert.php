@@ -11,7 +11,7 @@ class Swatch_ProductOufOfStockAlert_Model_Resource_Alert extends Mage_Core_Model
     */
     protected function _construct()
     {
-        $this->_init('productoufofstockalert/log', 'log_id');
+        $this->_init('swatch_productoutofstockalert/log', 'log_id');
     }
 }
 
