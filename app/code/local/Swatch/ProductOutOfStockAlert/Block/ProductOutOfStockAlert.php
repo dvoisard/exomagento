@@ -48,4 +48,9 @@ class Swatch_ProductOutOfStockAlert_Block_ProductOutOfStockAlert extends Mage_Co
 
         return parent::_prepareLayout();
     }
+    
+    public function getActionForm()
+    {
+        return $this->getUrl('productoutofstockalert/index/subscribeAlert');
+    }
 }

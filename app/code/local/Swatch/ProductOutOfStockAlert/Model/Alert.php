@@ -29,5 +29,16 @@ class Swatch_ProductOutOfStockAlert_Model_Alert extends Mage_Core_Model_Abstract
     {
         return Mage::getResourceModel('swatch_productoutofstockalert/alert_collection');
     }
+    
+    /**
+     * @todo send email to customer when the product is available
+     * Send customer email
+     *
+     * @return bool
+     */
+    public function send()
+    {
+        return true;
+    }
 }
 
