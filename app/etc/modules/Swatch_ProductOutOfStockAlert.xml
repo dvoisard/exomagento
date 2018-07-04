@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Module initial config
+*
+* @author David Voisard
+*/
+-->
+<config>
+    <modules>
+        <Swatch_ProductOutOfStockAlert>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Adminhtml/>
+            </depends>
+        </Swatch_ProductOutOfStockAlert>
+    </modules>
+</config>

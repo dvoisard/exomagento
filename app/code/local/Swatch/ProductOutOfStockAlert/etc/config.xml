@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Module configuration
+*
+* @author David Voisard
+*/
+-->
+<config>
+    <modules>
+        <Swatch_ProductOutOfStockAlert>
+            <version>0.0.1</version>
+        </Swatch_ProductOutOfStockAlert>
+    </modules>
+    <global>
+        <resources>
+            <swatch_productoutofstockalert_setup>
+                <setup>
+                    <module>Swatch_ProductOutOfStockAlert</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </swatch_productoutofstockalert_setup>
+        </resources>
+        <models>
+            <swatch_productoutofstockalert>
+                <class>Swatch_ProductOutOfStockAlert_Model</class>
+                <resourceModel>productoutofstockalert_resource</resourceModel>
+            </swatch_productoutofstockalert>
+            <swatch_productoutofstockalert_resource>
+                <class>Swatch_ProductOutOfStockAlert_Model_Resource</class>
+                <entities>
+                    <log>
+                        <table>productoutofstockalert</table>
+                    </log>
+                </entities>
+            </swatch_productoutofstockalert_resource>
+        </models>
+        <helpers>
+            <swatch_productoutofstockalert>
+                <class>Swatch_ProductOutOfStockAlert_Helper</class>
+            </swatch_productoutofstockalert>
+        </helpers>
+        <blocks>
+            <swatch_productoutofstockalert>
+                <class>Swatch_ProductOutOfStockAlert_Block</class>
+            </swatch_productoutofstockalert>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <productoutofstockalert>
+                <use>standard</use>
+                <args>
+                    <module>ProductOutOfStockAlert</module>
+                    <frontName>productoutofstockalert</frontName>
+                </args>
+            </productoutofstockalert>
+        </routers>
+        <layout>
+            <updates>
+                <productoutofstockalert>
+                    <file>productoutofstockalert.xml</file>
+                </productoutofstockalert>
+            </updates>
+        </layout>
+    </frontend>
+</config>
+
