@@ -50,7 +50,7 @@ class Swatch_ProductOutOfStockAlert_Helper_Data extends Mage_Core_Helper_Data
      * Set current product instance
      *
      * @param Mage_Catalog_Model_Product $product
-     * @return Mage_ProductAlert_Helper_Data
+     * @return Swatch_ProductOutOfStockAlert_Helper_Data
      */
     public function setProduct($product)
     {
