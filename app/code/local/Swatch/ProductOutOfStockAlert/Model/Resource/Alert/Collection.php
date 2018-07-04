@@ -11,7 +11,7 @@ class Swatch_ProductOutOfStockAlert_Model_Resource_Alert_Collection extends Mage
     */
     protected function _construct()
     {
-        $this->_init('productoutofstockalert/log');
+        $this->_init('swatch_productoutofstockalert/log');
     }
     /**
     * Prepare for displaying in list
@@ -21,7 +21,7 @@ class Swatch_ProductOutOfStockAlert_Model_Resource_Alert_Collection extends Mage
     */
     public function prepareForList($page)
     {
-        $this->setPageSize(Mage::helper('productoutofstockalert')
+        $this->setPageSize(Mage::helper('swatch_productoutofstockalert')
                 ->getNewsPerPage());
         $this->setCurPage($page)->setOrder('entered_at', Varien_Data_Collection::SORT_ORDER_DESC);
         return $this;

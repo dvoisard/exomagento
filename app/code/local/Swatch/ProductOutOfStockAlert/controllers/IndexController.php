@@ -9,7 +9,7 @@ class Swatch_ProductOutOfStockAlert_IndexController extends Mage_Core_Controller
     public function preDispatch()
     {
         parent::preDispatch();
-        if (!Mage::helper('productoutofstockalert')->isEnabled())
+        if (!Mage::helper('swatch_productoutofstockalert')->isEnabled())
         {
             $this->setFlag('', 'no-dispatch', true);
             $this->_redirect('noRoute');
