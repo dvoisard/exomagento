@@ -50,10 +50,9 @@ class Swatch_ProductOutOfStockAlert_Block_Adminhtml_Alerts_Grid extends Mage_Adm
     {
         $productId = $this->getRequest()->getParam('id');
 
-        return $this->getUrl('*/catalog_product/alertsOutOfStockGrid', array(
+        return $this->getUrl('*/alertsOutOfStockGrid', array(
             'id'    => $productId,
         ));
     }
-
 }
 
