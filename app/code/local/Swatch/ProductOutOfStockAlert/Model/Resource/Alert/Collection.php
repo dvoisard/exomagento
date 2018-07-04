@@ -26,4 +26,21 @@ class Swatch_ProductOutOfStockAlert_Model_Resource_Alert_Collection extends Mage
         $this->setCurPage($page)->setOrder('entered_at', Varien_Data_Collection::SORT_ORDER_DESC);
         return $this;
     }
+    
+    /**
+     *
+     * @param int $productId
+     * @return Swatch_ProductOutOfStockAlert_Model_Resource_Alert_Collection
+     */
+    public function join($productId)
+    {
+        $this->getSelect()->join(
+            array('alert' => $this->getTable('swatch_productoutofstockalert')),
+            'alert.product_id=e.entity_id',
+            array('log_id', 'email', 'entrered_at')
+        );
+        $this->addAttributeToSelect('*');
+
+        return $this;
+    }
 }

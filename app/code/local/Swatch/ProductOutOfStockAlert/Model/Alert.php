@@ -24,5 +24,10 @@ class Swatch_ProductOutOfStockAlert_Model_Alert extends Mage_Core_Model_Abstract
         }
         return $this;
     }
+    
+    public function getCollection()
+    {
+        return Mage::getResourceModel('swatch_productoutofstockalert/alert_collection');
+    }
 }
 
