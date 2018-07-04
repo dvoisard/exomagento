@@ -32,7 +32,15 @@ class Swatch_ProductOutOfStockAlert_Block_ProductOutOfStockAlert extends Mage_Co
             $this->setTemplate('');
             return;
         }
-        
+    }
+    
+    /**
+     * Get current product instance
+     *
+     * @return Mage_ProductAlert_Block_Product_View
+     */
+    protected function _prepareLayout()
+    {
         $product = Mage::registry('current_product');
         if ($product && $product->getId()) {
             $this->_product = $product;
