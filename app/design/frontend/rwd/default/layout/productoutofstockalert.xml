@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="content">
+            <reference name="product.info">
+                <block type="swatch_productoutofstockalert/productOutOfStockAlert" name="productoutofstockalert.form" as="poosa_form" template="productoutofstockalert/form.phtml" />
+            </reference>
+        </reference>
+    </catalog_product_view>
+</layout>

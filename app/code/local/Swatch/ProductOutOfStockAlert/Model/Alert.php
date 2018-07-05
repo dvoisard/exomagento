@@ -11,7 +11,7 @@ class Swatch_ProductOutOfStockAlert_Model_Alert extends Mage_Core_Model_Abstract
     */
     protected function _construct()
     {
-        $this->_init('swatch_productoutofstockalert/log');
+        $this->_init('swatch_productoutofstockalert/alert');
     }
     /**
     * @return Swatch_ProductOutOfStockAlert_Model_Alert
@@ -38,6 +38,14 @@ class Swatch_ProductOutOfStockAlert_Model_Alert extends Mage_Core_Model_Abstract
      */
     public function send()
     {
+        return true;
+    }
+
+    public function isEmail($email)
+    {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return false;
+        }
         return true;
     }
 }

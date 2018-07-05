@@ -13,28 +13,27 @@
         </Swatch_ProductOutOfStockAlert>
     </modules>
     <global>
-        <resources>
-            <swatch_productoutofstockalert_setup>
-                <setup>
-                    <module>Swatch_ProductOutOfStockAlert</module>
-                    <class>Mage_Core_Model_Resource_Setup</class>
-                </setup>
-            </swatch_productoutofstockalert_setup>
-        </resources>
         <models>
             <swatch_productoutofstockalert>
                 <class>Swatch_ProductOutOfStockAlert_Model</class>
-                <resourceModel>productoutofstockalert_resource</resourceModel>
+                <resourceModel>swatch_productoutofstockalert_resource</resourceModel>
             </swatch_productoutofstockalert>
             <swatch_productoutofstockalert_resource>
                 <class>Swatch_ProductOutOfStockAlert_Model_Resource</class>
                 <entities>
-                    <log>
+                    <alert>
                         <table>productoutofstockalert</table>
-                    </log>
+                    </alert>
                 </entities>
             </swatch_productoutofstockalert_resource>
         </models>
+        <resources>
+            <swatch_productoutofstockalert_setup>
+                <setup>
+                    <module>Swatch_ProductOutOfStockAlert</module>
+                </setup>
+            </swatch_productoutofstockalert_setup>
+        </resources>
         <helpers>
             <swatch_productoutofstockalert>
                 <class>Swatch_ProductOutOfStockAlert_Helper</class>
@@ -51,7 +50,7 @@
             <productoutofstockalert>
                 <use>standard</use>
                 <args>
-                    <module>ProductOutOfStockAlert</module>
+                    <module>Swatch_ProductOutOfStockAlert</module>
                     <frontName>productoutofstockalert</frontName>
                 </args>
             </productoutofstockalert>
@@ -64,14 +63,12 @@
             </updates>
         </layout>
     </frontend>
-    <crontab>
-        <jobs>
+    <default>
+        <catalog>
             <productoutofstockalert>
-                <run>
-                    <model>productoutofstockalert/observer::process</model>
-                </run>
+                <enabled>1</enabled>
             </productoutofstockalert>
-        </jobs>
-    </crontab>
+        </catalog>
+    </default>
 </config>
 

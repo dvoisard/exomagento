@@ -1,0 +1,49 @@
+<?php
+/**
+ * @author David Voisard
+ */
+?>
+<!--Form Information-->
+<div class="email-field">
+    <div class="label-box">
+        <label for="email"><?php echo $this->__('Notify me when available')?></label>
+    </div>
+    <div class="input-box">
+        <input type="text"
+               class="input-text required-entry validate-email"
+               maxlength="255"
+               title="Email"
+               value=""
+               name="email"
+               id="email"
+               placeholder="<?php echo $this->__('Enter your email address'); ?>">
+        <button class="button" id="alert" title="Submit" type="button"><span><span><?php echo $this->__('Submit')?></span></span></button>
+    </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    $("alert").observe("click", function() {
+        try {
+            var data = {
+                'product' : '<?php echo $this->getProduct()->getId(); ?>',
+                'email': $('email').value
+            };
+            var url = '<?php echo $this->getActionForm() ?>';
+            new Ajax.Request(url ,{
+                method:'POST',
+                parameters: data,
+                requestHeaders: {Accept: 'application/json'},
+                onSuccess:function(transport){
+                    var response=transport.responseText.evalJSON(true);
+
+                }.bind(this)
+            });
+
+
+        } catch (e) {
+        }
+
+    });
+
+    //]]>
+</script>

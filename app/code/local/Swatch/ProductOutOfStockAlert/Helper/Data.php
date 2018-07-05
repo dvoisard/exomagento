@@ -11,13 +11,8 @@ class Swatch_ProductOutOfStockAlert_Helper_Data extends Mage_Core_Helper_Data
     *
     * @var string
     */
-    const XML_PATH_ENABLED            = 'productoutofstockalert/view/enabled';
-    /**
-    * Path to store config where count of news posts per page is stored
-    *
-    * @var string
-    */
-    const XML_PATH_ITEMS_PER_PAGE     = 'productoutofstockalert/view/items_per_page';
+    const XML_PATH_ENABLED            = 'catalog/productoutofstockalert/enabled';
+
     /**
      * Current product instance (override registry one)
      *
@@ -56,20 +51,5 @@ class Swatch_ProductOutOfStockAlert_Helper_Data extends Mage_Core_Helper_Data
     {
         $this->_product = $product;
         return $this;
-    }
-    /**
-    * Return the number of items per page
-    *
-    * @param integer|string|Mage_Core_Model_Store $store
-    * @return int
-    */
-    public function getNewsPerPage($store = null)
-    {
-        return abs((int)Mage::getStoreConfig(self::XML_PATH_ITEMS_PER_PAGE, $store));
-    }
-    
-    public function getStore()
-    {
-        return Mage::app()->getStore();
     }
 }

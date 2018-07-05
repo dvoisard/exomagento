@@ -3,7 +3,7 @@
  * ProductOutOfStockAlert block
  *
  * @category   local
- * @package    Mage_ProductOutOfStockAlert
+ * @package    Swatch_ProductOutOfStockAlert
  * @author     David Voisard
  */
 class Swatch_ProductOutOfStockAlert_Block_ProductOutOfStockAlert extends Mage_Core_Block_Template
@@ -22,19 +22,6 @@ class Swatch_ProductOutOfStockAlert_Block_ProductOutOfStockAlert extends Mage_Co
     }
     
     /**
-     * Display the form if the product is out of stock
-     * 
-     * @return void
-     */
-    public function displayForm()
-    {
-         if (!$this->_product || $this->_product->isAvailable()) {
-            $this->setTemplate('');
-            return;
-        }
-    }
-    
-    /**
      * Get current product instance
      *
      * @return Mage_ProductAlert_Block_Product_View
@@ -48,9 +35,24 @@ class Swatch_ProductOutOfStockAlert_Block_ProductOutOfStockAlert extends Mage_Co
 
         return parent::_prepareLayout();
     }
-    
+
+    /**
+     * Get action form
+     * 
+     * @return string
+     */
     public function getActionForm()
     {
         return $this->getUrl('productoutofstockalert/index/subscribeAlert');
+    }
+
+    /**
+     * Get product
+     *
+     * @return Mage_Catalog_Model_Product|null
+     */
+    public function getProduct()
+    {
+        return $this->_product;
     }
 }

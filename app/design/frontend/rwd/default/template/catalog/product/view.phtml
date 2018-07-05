@@ -111,7 +111,11 @@
                     </div>
                 <?php endif; ?>
             </div>
-
+            <?php if (!$_product->isSaleable()): ?>
+            <div class="subscribe_alert">
+                <?php echo $this->getChildHtml('poosa_form')  ?>
+            </div>
+            <?php endif; ?>
             <?php echo $this->getChildHtml('related_products') ?>
 
             <div class="clearer"></div>

@@ -6,22 +6,36 @@
 */
 class Swatch_ProductOutOfStockAlert_IndexController extends Mage_Core_Controller_Front_Action
 {
+    /**
+     * Predispatch
+     *
+     * @return void
+     */
     public function preDispatch()
     {
         parent::preDispatch();
-        if (!Mage::helper('swatch_productoutofstockalert')->isEnabled())
-        {
+        if (!Mage::helper('swatch_productoutofstockalert')->isEnabled()) {
             $this->setFlag('', 'no-dispatch', true);
             $this->_redirect('noRoute');
         }
     }
-    
+
+    /**
+     * Index action
+     *
+     * @return void
+     */
     public function indexAction()
     {
         $this->loadLayout();
         $this->renderLayout();
     }
-    
+
+    /**
+     * Subsccribe alert
+     *
+     * @return void
+     */
     public function subscribeAlertAction()
     {
         $productId  = (int) $this->getRequest()->getParam('product');
@@ -40,20 +54,29 @@ class Swatch_ProductOutOfStockAlert_IndexController extends Mage_Core_Controller
             return ;
         }
         
-        $data = $this->getRequest()->getPost();
+        $email = $this->getRequest()->getParam('email');
+        
+        
         $alert = Mage::getModel('swatch_productoutofstockalert/alert');
-        $alert->setData('email', $data['email']);
+
+        if ($alert->isEmail($email)) {
+            $alert->setData('email', $email);
+        } else {
+            $this->_redirectUrl($product->getProductUrl());
+            return $this;
+        }
+        
+        $alert->setData('email', $email);
         $alert->setData('product_id', $productId);
         
-        try
-        {
+        try {
             $alert->save();
             $session->addSuccess('Subscribtion to notification save');
-        } catch(Exception $e)
-        {
-          $session->addError('Add Error');
+        } catch (Exception $e) {
+            Mage::logException($e);
         }
         
         $this->_redirectUrl($product->getProductUrl());
+        return $this;
     }
 }
